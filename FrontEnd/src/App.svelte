@@ -11,6 +11,7 @@
 </script>
 <body>
   <main>
+    <!-- definicion de rutas para el Navbar -->
     <Router url="{url}">
       <Navbar/>
       <div>
