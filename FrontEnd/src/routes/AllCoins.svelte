@@ -1,1 +1,12 @@
-<h1>HOLA ESTOY EN All Coins</h1>
+<script>
+    import {coins} from '../store'
+    import Table from '../components/Table.svelte'
+
+</script>
+    <div>
+        <Table/>
+    </div>
+
+<style>
+    
+</style>
