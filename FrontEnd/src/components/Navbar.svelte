@@ -122,7 +122,7 @@
   }
 
   .navbar-list.mobile {
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 1);
     position: fixed;
     display: block;
     height: calc(100% - 45px);
@@ -151,6 +151,7 @@
     nav{
         justify-content: unset;
     }
+
 }
   
   </style>
