@@ -1,97 +1,107 @@
 <script>
-// @ts-nocheck
-import {Datatable,SearchInput,PaginationButtons,PaginationRowCount} from 'svelte-simple-datatables';
 import {coins} from '../store';
-const settings = { 
-    columnFilter: true, 
-    rowsPerPage: 25,
-    blocks: {
-        searchInput: false, 
-        paginationButtons: false,
-        paginationRowCount: false,
-    }
-}
-let rows;
+import {get} from 'svelte/store';
+import Button from './Button.svelte';
 
+
+let headings = ["#", "Coin", "Price", "Price Change", "24h Volume","Followed"];
+//Copy store value//
+let precios = get(coins);
+console.log(precios);
 </script>
 
 
-<!-- svelte strap  -->
 <svelte:head>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
 </svelte:head>
 
+<main class='container p-4'>
+  <div>
+    <input type="text" name="text" class="input" placeholder="Search">
+  </div>
+
+  <div class="table-responsive border border-dark border-6 ">
+    <table class="table table-dark table-hover ">
+      <thead>
+        <tr>
+          {#each headings as heading}
+            <th>{heading}</th>
+          {/each}
+        </tr>
+      </thead>
+      <tbody>
+        {#each $coins as coin, i}
+          <tr>
+            <td class="text-muted">{i}</td>
+            <td>
+              <img
+                src={coin.image}
+                alt={coin.name}
+                style="width: 2rem"
+                class="img-fluid"
+              />
+              <span>
+                {coin.name}
+              </span>
+              <span class="ms-3 text-muted text-uppercase">
+                {coin.symbol}
+              </span>
+            </td>
+            <td>
+              ${coin.current_price.toLocaleString()}
+            </td>
+            <td
+              class={coin.price_change_percentage_24h > 0
+                ? "text-success"
+                : "text-danger"}
+            >
+              {coin.price_change_percentage_24h}
+            </td>
+            <td>
+              {coin.total_volume.toLocaleString()}
+            </td>
+            <td style="width: 10px; height: 10px">
+              <Button/>
+            </td>
+          </tr>
+        {/each}
+      </tbody>
+    </table> 
+  </div>
+</main>
 
 
-<section>
-    <aside>
-        {#if $rows}
-        <SearchInput id={'my-table'}/>
-        {/if}
-    </aside>
-    
-   
-    <div>
-        <Datatable {settings} data={$coins} bind:dataRows={rows} id={'my-table'}>
-            <thead>
-                <th data-key="#">#</th>
-                <th data-key="Coin_name">Coin Name</th>
-                <th data-key="Price">Price</th>
-                <th data-key="Price_Change">Price Change</th>
-                <th data-key="Volume">24h Volume</th>
-                <th data-key="last_7_days">Last 7 days</th>
-            </thead>
-            <tbody>
-            {#if rows}
-                {#each $rows as row,i}
-                <tr>
-                    <td>{i}</td>
-                    <td>
-                        <img
-                        src={row.image}
-                        alt={row.name}
-                        style="width: 1.5rem"
-                        class="img-fluid"
-                      />
-                      <span>
-                        {row.name}
-                      </span>
-                      <span class="ms-3 text-muted text-uppercase">
-                        {row.symbol}
-                      </span>
-                    </td>
-                    <td>${row.current_price.toLocaleString()}</td>
-                    <td
-                    class={row.price_change_percentage_24h > 0
-                      ? "text-success"
-                      : "text-danger"}
-                  >
-                    {row.price_change_percentage_24h}
-                  </td>
-                  <td>
-                    {row.total_volume.toLocaleString()}
-                  </td>
-                  <td>
-                    {console.log("Das")}
-                  </td>
-                </tr>
-                {/each}
-            {/if}
-            </tbody>
-        </Datatable>
-    </div>
-    
-    <aside>
-        {#if $rows}
-            <PaginationButtons id={'my-table'}/>
-            <PaginationRowCount id={'my-table'}/>
-        {/if}
-    </aside>
-</section>
 
 <style>
-    section{padding:24px 48px;background:#eee;border-radius:8px;}
-    aside{display:flex;justify-content:space-between;padding:8px 16px;background:#fff;border-radius:8px;margin:8px 0;}
-    div{padding:8px 0;height:400px;background:#fff;border-radius:8px;}
-    td{text-align:center;padding:4px 8px;white-space:nowrap;}
+  div{
+    padding-bottom: 20px;
+  }
+  .input {
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+  font-weight: 500;
+  font-size: 1.1vw;
+  color: rgb(0, 238, 255);
+  background-color: rgb(28,28,30);
+  box-shadow: 0 0 .4vw rgba(0,0,0,0.5), 0 0 0 .15vw transparent;
+  border-radius: 0.4vw;
+  border: none;
+  outline: none;
+  padding: 0.4vw;
+  width: 100%;
+  height: 50px;
+  transition: .4s;
+}
+
+.input:hover {
+  box-shadow: 0 0 0 .15vw rgba(135, 207, 235, 0.186);
+}
+
+.input:focus {
+  box-shadow: 0 0 0 .15vw skyblue;
+}
+
+
+thead{
+  color: rgb(255, 255, 255);
+}
 </style>

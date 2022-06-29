@@ -4,7 +4,7 @@
     box-sizing: border-box;
   }
 body{
-    background-image: url('./assets/images/fondo2.svg');
+    background-image: url('./assets/images/fondo3.svg');
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
@@ -35,3 +35,10 @@ a{
 
 
 
+
+
+
+
+.datatable .dt-search  {
+  border: 5px solid #000000 !important;
+}
