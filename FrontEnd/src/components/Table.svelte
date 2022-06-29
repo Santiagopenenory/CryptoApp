@@ -1,13 +1,28 @@
 <script>
+// @ts-nocheck
+
 import {coins} from '../store';
 import {get} from 'svelte/store';
 import Button from './Button.svelte';
 
 
-let headings = ["#", "Coin", "Price", "Price Change", "24h Volume","Followed"];
+
+
+let headings = ["#", "Coin", "Price (USD)", "Price Change", "24h Volume","Followed"];
 //Copy store value//
-let precios = get(coins);
-console.log(precios);
+let filteredCoins = [];
+filteredCoins = get(coins);
+
+//input filter
+let textSearch = "";
+const searchCoin = (value) => {
+    filteredCoins = $coins.filter(
+      (coin) =>
+        coin.name.toLowerCase().includes(value) ||
+        coin.symbol.toLowerCase().includes(value)
+    );
+  };
+
 </script>
 
 
@@ -15,13 +30,11 @@ console.log(precios);
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
 </svelte:head>
 
-<main class='container p-4'>
+<main class="container p-4">
   <div>
-    <input type="text" name="text" class="input" placeholder="Search">
+    <input  bind:value={textSearch} on:keyup={({ target: { value } }) => searchCoin(value)} type="text"  class="input" placeholder="Search">
   </div>
-
-  <div class="table-responsive border border-dark border-6 ">
-    <table class="table table-dark table-hover ">
+    <table class="table table-dark table-hover">
       <thead>
         <tr>
           {#each headings as heading}
@@ -30,7 +43,7 @@ console.log(precios);
         </tr>
       </thead>
       <tbody>
-        {#each $coins as coin, i}
+        {#each filteredCoins as coin, i}
           <tr>
             <td class="text-muted">{i}</td>
             <td>
@@ -61,13 +74,12 @@ console.log(precios);
               {coin.total_volume.toLocaleString()}
             </td>
             <td style="width: 10px; height: 10px">
-              <Button/>
+              <Button data={coin}/>
             </td>
           </tr>
         {/each}
       </tbody>
     </table> 
-  </div>
 </main>
 
 

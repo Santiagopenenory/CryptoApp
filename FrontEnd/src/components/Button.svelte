@@ -1,12 +1,42 @@
 <script>
-    let valor = "Follow"
-    function cambiar(){valor = "hola"}
+    let description = "Follow"
+
+
+    //TODO: implementar metodos checkCoin(), addUserCoin(), removeUserCoin() en el store
+    //  let cambiara = ()=>{
+    //   //let cointainsCoin = checkCoin()    
+    //   if(description === "Follow" && !cointainsCoin){
+    //         description = "Unfollow";
+    //         //addUserCoin();
+    //     }else{
+    //       if(description==="Unfollow" && cointainsCoin){
+    //         description= "Follow";
+    //         //removeUserCoin();
+    //       }
+    //     }
+    // }
+
+      let cambiara = ()=>{
+      //let cointainsCoin = checkCoin()    
+      if(description === "Follow" ){
+            description = "Unfollow";
+            //addUserCoin();
+        }else{
+          if(description==="Unfollow"){
+            description= "Follow";
+            //removeUserCoin();
+          }
+        }
+    }
+
+    export let data; 
+
 </script>
 
 
 <div>
     <button>
-        <span on:click={cambiar} class="button_top"> {valor}
+        <span on:click={cambiara} class="button_top"> {description}
         </span>
       </button>
 </div>
