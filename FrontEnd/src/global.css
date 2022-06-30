@@ -4,22 +4,26 @@
     box-sizing: border-box;
   }
 body{
-    background-image: url('./assets/images/fondo3.svg');
+    background-image: url('../public/assets/images/fondo3.svg');
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
     background-size: cover;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
 
  /* estilos del navbar */
 
  a[aria-current="page"] {
   border-bottom: 3px solid #ffffff;
-  color: #ffffff;
 }
 a{
   text-align: right;
+  color: #ffffff !important;
+}
+a:hover {
+  background-color: #515151;
+  border-radius: 8px !important; /* Green */ 
 }
 .navbar-list > a {
   color: #fff;
@@ -28,17 +32,7 @@ a{
   height: 45px;
   align-items: center;
   padding: 0 10px;
-  font-size: 13px;
+  font-size: 16px;
   font-weight: bold;
-}
-
-
-
-
-
-
-
-
-.datatable .dt-search  {
-  border: 5px solid #000000 !important;
+  font-family: sans-serif;
 }

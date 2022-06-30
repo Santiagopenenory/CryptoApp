@@ -112,6 +112,16 @@ const searchCoin = (value) => {
   box-shadow: 0 0 0 .15vw skyblue;
 }
 
+@media screen and (max-width:768px){
+  .input{
+    font-size: 2vw;
+  }
+}
+@media screen and (max-width:480px){
+  .input{
+    font-size: 2.2vw;
+  }
+}
 
 thead{
   color: rgb(255, 255, 255);

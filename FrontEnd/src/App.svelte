@@ -9,6 +9,7 @@
 
   export let url = "";
 </script>
+
 <body>
   <main>
     <!-- definicion de rutas para el Navbar -->
@@ -23,7 +24,11 @@
       </div>
     </Router>
   </main>
+  <!-- TODO: agregar footer todo negro  -->
 </body>
 
 <style>
+      main{
+        max-width: 100%;
+      }
 </style>

@@ -63,7 +63,7 @@
  border-radius: var(--button_radius);
  padding: 0.75em 1.5em;
  background: var(--button_color);
- color: rgb(145, 145, 145);
+ color: rgb(255, 255, 255);
  transform: translateY(-0.2em);
  transition: transform 0.1s ease;
 }

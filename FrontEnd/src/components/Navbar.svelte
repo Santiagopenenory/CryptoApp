@@ -41,9 +41,9 @@
   <style>
     nav {
         display: flex;
-        background-color: rgba(0, 0, 0, 0.8);
+        background-color: rgba(0, 0, 0, 1);
         font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-        height: 45px;
+        height: 60px;
         align-items: center;
         justify-content: space-between;
   }
@@ -51,7 +51,7 @@
   .nav-title{
     color: #fff;
     position: center;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
      margin: .5rem;
     font-style: bold;
   }
