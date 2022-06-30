@@ -2,6 +2,7 @@
 //Atributos foto,nombre,simbolo,precio, 
 
 export let coindata = [];
+console.log(coindata)
 </script>
 
 <svelte:head>
@@ -13,11 +14,13 @@ export let coindata = [];
 
 <div class="card bg-dark">
     <!-- svelte-ignore a11y-img-redundant-alt -->
-    <img class="card-img-top" src="{coindata.large}" alt="">
+    <div class="imagen">
+        <img class="card-img-top" src="{coindata.large}" alt="">
+    </div>
     <div class="card-body">
-      <h5 class="card-title text-light">Card title</h5>
-      <p class="card-text text-light">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      <p class="card-text text-light"><small class="text-muted">Last updated 3 mins ago</small></p>
+        <span class="text-light text-muted">{coindata.symbol}</span>
+      <h5 class="card-title text-light">{coindata.name}</h5>
+      <p class="card-text text-light">Precio: {coindata.price_btc} BTC</p>
     </div>
   </div>
 
@@ -26,8 +29,14 @@ export let coindata = [];
             height: 100px;
             width: 100px;
         }
+        .imagen{
+            margin: auto;
+            padding-top: 10px;
+        }
+
 
         .card{
-            margin: 15px !important;
+            margin: 50px !important;
+            border-radius: 12px !important;
         }
   </style>

@@ -26,6 +26,9 @@
         <Card coindata={trendingCoins[4]}/>
         <Card coindata={trendingCoins[5]}/>
     </div>
-    <Card coindata={trendingCoins[6]}/>
 </div>
+
+
+<style>
+</style>
 
