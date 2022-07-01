@@ -15,7 +15,9 @@
     "vite": "^2.9.9"
   },
   "dependencies": {
+    "apexcharts": "^3.35.3",
     "chart.js": "^3.8.0",
+    "svelte-apexcharts": "^1.0.2",
     "svelte-routing": "^1.6.0"
   }
 }

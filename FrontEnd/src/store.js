@@ -12,14 +12,25 @@ export const coins = writable([]);
 
 
 //Fetching de las criptomonedas del usuario//
-const urlUser = 'api url';
-let loadUserCoins = async ()=>{
-    const res = await fetch(url);
-    userCoins.set(await res.json());
-}
-loadUserCoins(); 
+// const urlUser = 'api url';
+// let loadUserCoins = async ()=>{
+//     const res = await fetch(url);
+//     userCoins.set(await res.json());
+// }
+// loadUserCoins(); 
+// export const userCoins = writable([]);
 
-export const userCoins = writable([]);
+const urlAllCoins = 'https://api.coingecko.com/api/v3/coins/list'
+
+let allCoinsvalues = async()=>{
+    const res = await fetch(urlAllCoins)
+    allCoins.set(await res.json());
+
+}
+allCoinsvalues();
+export const allCoins = writable([])
+
+
 
 
 
