@@ -3,7 +3,6 @@
 <script>
 import Grid from '../components/Grid.svelte';
 import Typewriter from 'svelte-typewriter';
-
 </script>
 
 
@@ -18,24 +17,22 @@ import Typewriter from 'svelte-typewriter';
         <div class="text">
                 <Typewriter cascade delay=500 interval=70>
                     <h1 class='title'>CryptoFinder App</h1>
-                    <p class='description'>Descripcion de la app</p>
+                    <p class='description'>The best app to track your cryptocurrencies.</p>
                 </Typewriter>
             </div>
-            <img src="../public/assets/images/crypto2.png" class="img" alt="">
+            <img src="../assets/images/crypto2.png" class="img" alt="">
         </div>
     </section>
     
     
-    <section class="trending-coins">
+    <!-- <section class="trending-coins">
         <div class="container-trending-title">
             <h1 class="trending-title" >
                 Trending Coins
             </h1>
         </div>
-        <div class="container">
-        </div>
         <Grid/>
-    </section> 
+    </section>  -->
     
 
 <style>
@@ -43,15 +40,6 @@ import Typewriter from 'svelte-typewriter';
         padding-top: 100px;
         height: 100vh;
 
-    }
-    .trending-title{
-        font-family: sans-serif bold;
-        font-size: 70px;
-        color: #000000;
-    }
-    .container-trending-title{
-        padding-bottom: 5%;
-        margin-left: 20px;
     }
     .container{
         width: 95%;
@@ -82,8 +70,6 @@ import Typewriter from 'svelte-typewriter';
         font-size: 30px;
         font-family:'Courier New', Courier, monospace;
     }
-
-
     @media screen and (max-width:1380px){
         .img{
             height: 390px;
@@ -156,10 +142,6 @@ import Typewriter from 'svelte-typewriter';
             width: 100%;
             flex-wrap: wrap;
             justify-content: center;
-        }
-
-        .trending-title{
-            font-size: 50px;
         }
     }
 </style>

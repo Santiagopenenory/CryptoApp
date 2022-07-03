@@ -1,7 +1,7 @@
 <script>
     import CandleChart from '../components/CandleChart.svelte';
     import {allCoins} from '../store';
-
+    import {isAuthenticated} from '@dopry/svelte-auth0';
     //error number
     const error = -1;
 
@@ -44,23 +44,26 @@
 <svelte:head>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
 </svelte:head>
-<h1>Make A Candlestick Chart</h1>
-<div class="container">
-    <div class="container-inputs" bind:this={input}>
-        <input type="text" bind:value={coinName}  class="input" placeholder="Coin Name">
-        <input type="text" bind:value={days} name="text" class="input" placeholder="Data up to number of days ago(1..365)">
-        <input type="text" bind:value={vsCurrency} name="text" class="input" placeholder="The target currency of market data (usd, eur, jpy, etc.)">
+
+{#if $isAuthenticated}    
+    <h1>Make A Candlestick Chart</h1>
+    <div class="container">
+        <div class="container-inputs" bind:this={input}>
+            <input type="text" bind:value={coinName}  class="input" placeholder="Coin Name">
+            <input type="text" bind:value={days} name="text" class="input" placeholder="Data up to number of days ago(1..365)">
+            <input type="text" bind:value={vsCurrency} name="text" class="input" placeholder="The target currency of market data (usd, eur, jpy, etc.)">
+        </div>
+        <div class="container-buttons">
+            <button on:click={loadChart}  > Add Chart </button>
+            <button on:click={removeChart}  > Remove Chart </button>
+        </div>
     </div>
-    <div class="container-buttons">
-        <button on:click={loadChart}  > Add Chart </button>
-        <button on:click={removeChart}  > Remove Chart </button>
+    <div class="container-chart">
+        {#if graficar}
+            <CandleChart bind:this={ref} input={data} title={coinId}/{vsCurrency} />
+        {/if}
     </div>
-</div>
-<div class="container-chart">
-    {#if graficar}
-        <CandleChart bind:this={ref} input={data} title={coinId}/{vsCurrency} />
-    {/if}
-</div>
+{/if}
 
 
 <style>

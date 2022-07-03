@@ -4,7 +4,7 @@
     box-sizing: border-box;
   }
 body{
-    background-image: url('../public/assets/images/fondo3.svg');
+    background-image: url('../assets/images/fondo3.svg');
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
@@ -13,7 +13,6 @@ body{
 }
 
  /* estilos del navbar */
-
  a[aria-current="page"] {
   border-bottom: 3px solid #ffffff;
 }
@@ -36,3 +35,42 @@ a:hover {
   font-weight: bold;
   font-family: sans-serif;
 }
+/* Estilos login button */
+.login-btn {
+  width: 12em;
+  height: 2.3em;
+  background: black;
+  color: white;
+  border: none;
+  border-radius: 0.625em;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  margin-top: 20px;
+ }
+ 
+ .login-btn:hover {
+  color: black;
+ }
+ 
+ .login-btn:after {
+  content: "";
+  background: white;
+  position: absolute;
+  z-index: -1;
+  left: -20%;
+  right: -20%;
+  top: 0;
+  bottom: 0;
+  transform: skewX(-45deg) scale(0, 1);
+  transition: all 0.5s;
+ }
+ 
+ .login-btn:hover:after {
+  transform: skewX(-45deg) scale(1, 1);
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+ }

@@ -1,7 +1,8 @@
 
 <script>
     import { onMount } from "svelte";
-    import {Link} from "svelte-routing";
+    import {Link,navigate} from "svelte-routing";
+    import {isAuthenticated} from '@dopry/svelte-auth0';
     // Show mobile icon and display menu
     let showMobileMenu = false;
   
@@ -15,6 +16,7 @@
         showMobileMenu = false;
       }
     };
+
   
     // Attach media query listener on mount hook
     onMount(() => {
@@ -30,11 +32,17 @@
         </div>
         <div class="nav-title"> CryptoFinder </div>
         <div class={`navbar-list${showMobileMenu ? ' mobile' : ''}`}>
-                <Link to="/">Home</Link>
-                <Link to="about">About</Link>
-                <Link to="AllCoins">All Coins</Link>
-                <Link to="UserCoins">My Coins</Link>
-                <Link to="CoinPlotter">Coin Plotter</Link>
+
+          {#if !$isAuthenticated}
+              <Link to="/">Login</Link>
+            {:else}
+              <Link to="Home">Home</Link>
+              <Link to="AllCoins">All Coins</Link>
+              <Link to="CoinPlotter" >Coin Plotter</Link>
+              <Link to="UserCoins">My Coins</Link>
+              <Link to="TrendingCoins">Trending Coins</Link>
+          {/if}
+
         </div>
   </nav>
   
