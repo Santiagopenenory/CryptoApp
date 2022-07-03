@@ -67,7 +67,6 @@
 
 
 <style>
-
     h1{
         margin: 50px;
         margin-bottom: 70px;
@@ -84,6 +83,7 @@
         margin-top: 5%;
         max-width: 1400px;
         background-color: rgb(255, 255, 255);
+        margin-bottom: 50px;
         
     }
 
