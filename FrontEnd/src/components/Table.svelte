@@ -1,14 +1,14 @@
 <script>
 // @ts-nocheck
 
-import {coins} from '../store';
+import {coins,userCoins} from '../store';
 import {get} from 'svelte/store';
 import Button from './Button.svelte';
 
 
 
 
-let headings = ["#", "Coin", "Price (USD)", "Price Change", "24h Volume","Followed"];
+let headings = ["#", "Coin", "Price (USD)", "Price Change (24h)", "24h Volume","Followed"];
 //Copy store value//
 let filteredCoins = [];
 filteredCoins = get(coins);
@@ -68,14 +68,17 @@ const searchCoin = (value) => {
                 ? "text-success"
                 : "text-danger"}
             >
-              {coin.price_change_percentage_24h}
+              {coin.price_change_percentage_24h + " %"}
             </td>
             <td>
               {coin.total_volume.toLocaleString()}
             </td>
             <td style="width: 10px; height: 10px">
-              <!-- TODO: Falta controlar las monedas que posee el usuario para cambiar la descripcion de los botones -->
-              <Button coin={coin.symbol}/>
+              {#if  $userCoins.includes(coin.symbol)}
+                    <Button coin={coin.symbol} description="Unfollow"/>
+                {:else}
+                    <Button coin={coin.symbol} description="Follow"/>
+              {/if}
             </td>
           </tr>
         {/each}

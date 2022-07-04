@@ -1,8 +1,5 @@
 <script>
-//Atributos foto,nombre,simbolo,precio, 
-
 export let coindata = [];
-console.log(coindata)
 </script>
 
 <svelte:head>

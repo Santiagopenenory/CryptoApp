@@ -1,5 +1,5 @@
 <script>
-  import { Router, Link, Route } from "svelte-routing";
+  import { Router, Route } from "svelte-routing";
   import Home from "./routes/Home.svelte";
   import CoinPlotter from "./routes/CoinPlotter.svelte";
   import AllCoins from "./routes/AllCoins.svelte";
@@ -13,7 +13,6 @@
 
 <body>
   <main>
-    <!-- definicion de rutas para el Navbar -->
     <Router url="{url}">
       <Navbar/>
       <div>
@@ -26,11 +25,7 @@
       </div>
     </Router>
   </main>
-  <!-- TODO: agregar footer todo negro  -->
 </body>
 
 <style>
-      main{
-        max-width: 100%;
-      }
 </style>

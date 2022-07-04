@@ -1,13 +1,9 @@
 
 
 <script>
-import Grid from '../components/Grid.svelte';
 import Typewriter from 'svelte-typewriter';
-import {userInfo} from '@dopry/svelte-auth0';
-
-
-console.log(JSON.stringify($userInfo))
-
+// @ts-ignore
+import {isAuthenticated} from '@dopry/svelte-auth0';
 </script>
 
 
@@ -16,32 +12,19 @@ console.log(JSON.stringify($userInfo))
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
 </svelte:head>
 
-
-<h1>
-    {JSON.stringify($userInfo, null, 2)}
-</h1>
-<section class="app-presentation">
-    <div class="container">
-        <div class="text">
-                <Typewriter cascade delay=500 interval=70>
-                    <h1 class='title'>CryptoFinder App</h1>
-                    <p class='description'>The best app to track your cryptocurrencies.</p>
-                </Typewriter>
+{#if $isAuthenticated}    
+    <section class="app-presentation">
+        <div class="container">
+            <div class="text">
+                    <Typewriter cascade delay=500 interval=70>
+                        <h1 class='title'>CryptoFinder App</h1>
+                        <p class='description'>The best app to track your cryptocurrencies.</p>
+                    </Typewriter>
+                </div>
+                <img src="../assets/images/crypto2.png" class="img" alt="">
             </div>
-            <img src="../assets/images/crypto2.png" class="img" alt="">
-        </div>
-    </section>
-    
-    
-    <!-- <section class="trending-coins">
-        <div class="container-trending-title">
-            <h1 class="trending-title" >
-                Trending Coins
-            </h1>
-        </div>
-        <Grid/>
-    </section>  -->
-    
+        </section>
+{/if}
 
 <style>
     .app-presentation{

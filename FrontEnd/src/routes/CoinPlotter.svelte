@@ -28,7 +28,6 @@
     }
 
     let loadChart = async() =>{
-        console.log("estoy en load")
         coinId = getCoinid()
         if(coinId !== error){
             url = `https://api.coingecko.com/api/v3/coins/${coinId}/ohlc?vs_currency=${vsCurrency}&days=${days}`

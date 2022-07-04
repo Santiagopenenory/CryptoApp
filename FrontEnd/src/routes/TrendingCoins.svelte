@@ -1,5 +1,5 @@
 <script>
-    import Grid from '../components/Grid.svelte';
+    import GridTrending from '../components/GridTrending.svelte';
     import {isAuthenticated} from '@dopry/svelte-auth0';
 
 </script>
@@ -14,7 +14,7 @@
                 Trending Coins
             </h1>
         </div>
-        <Grid/>
+        <GridTrending/>
     </section> 
 {/if}
 

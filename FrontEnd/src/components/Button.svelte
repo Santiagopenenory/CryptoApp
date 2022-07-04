@@ -1,15 +1,37 @@
 <script>
   import {userCoins} from '../store.js'
-
-  let description = "Follow";
+  import {userInfo} from '@dopry/svelte-auth0';
+  export let description;
   export let coin;
 
 
   let checkCoin = ()=>{return $userCoins.includes(coin)}
 
-  let addUserCoin = ()=>{ console.log(coin);userCoins.set([...$userCoins,coin])}
+  let addUserCoin = async()=>{
+                               userCoins.set([...$userCoins,coin])
+                              const addcoin = await fetch(`${import.meta.env.VITE_API_SERVER}/add-coin`,{
+                              mode:"cors",
+                              method: "PUT",
+                              headers:{
+                                  "Content-Type": "application/json"
+                              },
+                              body: JSON.stringify({email:$userInfo.email,
+                                                    coin:coin})
+                          })
+    }
 
-  let removeUserCoin = ()=>{userCoins.update(userCoins =>{return userCoins.filter(e=>coin!==e)})};
+  let removeUserCoin = async()=>{
+                            userCoins.update(userCoins =>{return userCoins.filter(e=>coin!==e)})
+                            const addcoin = await fetch(`${import.meta.env.VITE_API_SERVER}/remove-coin`,{
+                              mode:"cors",
+                              method: "PUT",
+                              headers:{
+                                  "Content-Type": "application/json"
+                              },
+                              body: JSON.stringify({email:$userInfo.email,
+                                                    coin:coin})
+                          });
+                        }
 
   //TODO: Implementar interaccion con la api para mantener persistencia//
     let changeDescription = ()=>{
