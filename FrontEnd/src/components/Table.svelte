@@ -74,7 +74,8 @@ const searchCoin = (value) => {
               {coin.total_volume.toLocaleString()}
             </td>
             <td style="width: 10px; height: 10px">
-              <Button data={coin}/>
+              <!-- TODO: Falta controlar las monedas que posee el usuario para cambiar la descripcion de los botones -->
+              <Button coin={coin.symbol}/>
             </td>
           </tr>
         {/each}

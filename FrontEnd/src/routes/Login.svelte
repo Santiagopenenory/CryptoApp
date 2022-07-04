@@ -14,11 +14,51 @@
     } from '@dopry/svelte-auth0';
     import Typewriter from 'svelte-typewriter';
     import {Link,navigate} from "svelte-routing";
+
+    import {userCoins} from '../store.js'
+
+    //TODO: Ver como resolver el problema de carga
+    // const timeout = ()=>{navigate('/Home',{replace:true})}
+    // setTimeout(timeout,5000)
+
+    let loadUserCoins = async()=>{
+        const urlUser = `${import.meta.env.VITE_API_SERVER}/get-coins?email=${$userInfo.email}`;
+        const res = await fetch(urlUser);
+        userCoins.set(await res.json());
+    } 
+
+    let addUser = async()=>{
+        const newUser = {
+                    name: $userInfo.name,
+                    email:$userInfo.email,
+                    coins:[]
+            }
+            const addUser = await fetch(`${import.meta.env.VITE_API_SERVER}/add-user`,{
+                mode:"cors",
+                method: "POST",
+                headers:{
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(newUser)
+            })
+        console.log(await addUser.json());   
+    }
+
+    let loadUser = async()=>{
+        const res = await fetch(`${import.meta.env.VITE_API_SERVER}/check-user?name=${$userInfo.name}&email=${$userInfo.email}`);
+        const result = await res.json();
+        console.log(result)
+        if(!result.exists){
+            addUser();
+        }
+        loadUserCoins();
+        navigate('/Home',{replace:true})
+    }
 </script>
 
 
-
-    <Auth0Context domain="dev-0ysv1h3e.us.auth0.com" client_id="KnOiQpWa9cs04SkQNukLPTzKPEuUKnig">
+    
+    <Auth0Context domain={import.meta.env.VITE_DOMAIN} client_id={import.meta.env.VITE_CLIENT_ID}>
         <div class="container">
         <Typewriter delay=1000 interval=60>
             <h1>¡Welcome to CryptoFinder App!</h1>
@@ -30,19 +70,8 @@
     </div>
     </Auth0Context>
     {#if $isAuthenticated}
-        {navigate('/Home',{replace:true})}
+        {loadUser()}
     {/if}
-
-
-    <!-- <pre>isLoading: {$isLoading}</pre>
-    <pre>isAuthenticated: {$isAuthenticated}</pre>
-    <pre>authToken: {$authToken}</pre>
-    <pre>idToken: {$idToken}</pre>
-    <pre>userInfo: {JSON.stringify($userInfo, null, 2)}</pre>
-    <pre>authError: {$authError}</pre> -->
-<!-- <Auth0LogoutButton class="btn">Logout</Auth0LogoutButton> -->
-
-
 
 <style>
     h1{

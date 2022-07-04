@@ -3,6 +3,11 @@
 <script>
 import Grid from '../components/Grid.svelte';
 import Typewriter from 'svelte-typewriter';
+import {userInfo} from '@dopry/svelte-auth0';
+
+
+console.log(JSON.stringify($userInfo))
+
 </script>
 
 
@@ -12,6 +17,9 @@ import Typewriter from 'svelte-typewriter';
 </svelte:head>
 
 
+<h1>
+    {JSON.stringify($userInfo, null, 2)}
+</h1>
 <section class="app-presentation">
     <div class="container">
         <div class="text">
