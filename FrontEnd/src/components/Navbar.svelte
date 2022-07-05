@@ -111,6 +111,7 @@
   .mobile-icon.active:after,
   .mobile-icon.active .middle-line {
     width: 100%;
+    
   }
 
   .mobile-icon.active:before,
@@ -136,6 +137,7 @@
     height: calc(100% - 45px);
     bottom: 0;
     left: 0;
+    z-index: 1 !important;
   }
   @media only screen and (min-width: 767px) {
     .mobile-icon {
