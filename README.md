@@ -14,15 +14,15 @@
 - Contenedores
     - Docker & Docker - Compose
 
-## Funcionalidad de la aplicacion
+## Funcionalidad de la aplicación
 ---
 ### FrontEnd 
-- Utilizacion de [CoinGecko API](https://www.coingecko.com/en/api/documentation)
-    - El usuario podrá :
-        - Listar todas las monedas junto con su informacion 
-        - Tener su conjunto de monedas de preferencia
-        - Posibilidad de realizar graficos de velas con distintas configuraciones sobre moneda elegida, temporalidad que se quiere analizar  y moneda contra la cual comparar.
-        - Listado de monedas que son tendencia cada dia.  
+- Utilizacion de [CoinGecko API](https://www.coingecko.com/en/api/documentation) para obtención de información relacionada a las criptomonedas. 
+- El usuario podrá :
+    - Listar todas las monedas junto con su informacion 
+    - Tener su conjunto de monedas de preferencia
+    - Posibilidad de realizar graficos de velas con distintas configuraciones sobre moneda elegida, temporalidad que se quiere analizar  y moneda contra la cual comparar.
+    - Listado de monedas que son tendencia cada dia.  
 ### Autenticacion de usuarios
 - Se provee una  autenticacion de manera rapida y simple mediante [Auth0](https://auth0.com/docs/)
 ### BackEnd
@@ -30,7 +30,7 @@
 
  
 ### Contenedores
- - Composición de contenedores mediante Docker-compose para dockerizar la aplicación FrontEnd, BackEnd y la respectiva base de datos MongoDB.
+ - Composición de contenedores mediante Docker-compose para dockerizar la aplicación FrontEnd, BackEnd y la respectiva base de datos MongoDB para facilitar el rapido envío y despliegue de toda la aplicación.
 
 
  
