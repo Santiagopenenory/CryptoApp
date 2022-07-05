@@ -14,11 +14,11 @@ services:
             build: ./BackEnd
             ports:
                 - "5000:5000"
-            links:
-                  - mongodb
             environment:
                   ME_CONFIG_MONGODB_ADMINUSERNAME: root
                   ME_CONFIG_MONGODB_ADMINPASSWORD: mongo
+            depends_on:
+                  - mongodb
       mongodb:
             image: mongo
             restart: always
