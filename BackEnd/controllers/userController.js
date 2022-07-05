@@ -88,7 +88,7 @@ module.exports.removeCoin = async (req,res)=>{
 module.exports.getCoins = async(req,res)=>{
     const user = {email: `'${req.query.email}'`};
     User.findOne({email:req.query.email},{coins:1},(err,data)=>{
-        if(!err){
+        if(!err & data !==null){
             res.status(200).json(data.coins)
         }else{
             res.status(400).send("error getting user coins")
