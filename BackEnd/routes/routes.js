@@ -2,8 +2,6 @@ const userController = require('../controllers/userController.js')
 const {Router} = require('express');
 const router = Router();
 
-//TODO: Operaciones obtener todas las monedas de un usuario,Agregar moneda,eliminar moneda,registrar usuario  en caso de no existir
-
 
 router.get('/check-user',userController.checkUser);
 

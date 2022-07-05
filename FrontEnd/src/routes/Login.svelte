@@ -2,23 +2,12 @@
     import {
       Auth0Context,
       Auth0LoginButton,
-      Auth0LogoutButton,
-      authError,
-      authToken,
-      idToken,
       isAuthenticated,
-      isLoading,
-      login,
-      logout,
       userInfo,
     } from '@dopry/svelte-auth0';
     import Typewriter from 'svelte-typewriter';
-    import {Link,navigate} from "svelte-routing";
+    import {navigate} from "svelte-routing";
     import {userCoins} from '../store.js'
-
-    //TODO: Ver como resolver el problema de carga
-    // const timeout = ()=>{navigate('/Home',{replace:true})}
-    // setTimeout(timeout,5000)
 
     let loadUserCoins = async()=>{
         const urlUser = `${import.meta.env.VITE_API_SERVER}/get-coins?email=${$userInfo.email}`;

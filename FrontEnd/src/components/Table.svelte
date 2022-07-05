@@ -9,11 +9,11 @@ import Button from './Button.svelte';
 
 
 let headings = ["#", "Coin", "Price (USD)", "Price Change (24h)", "24h Volume","Followed"];
-//Copy store value//
+
 let filteredCoins = [];
 filteredCoins = get(coins);
 
-//input filter
+
 let textSearch = "";
 const searchCoin = (value) => {
     filteredCoins = $coins.filter(

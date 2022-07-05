@@ -33,7 +33,6 @@
                           });
                         }
 
-  //TODO: Implementar interaccion con la api para mantener persistencia//
     let changeDescription = ()=>{
     let cointainsCoin = checkCoin()    
     if(description === "Follow" && !cointainsCoin){
@@ -82,12 +81,10 @@
 }
 
 button:hover .button_top {
-  /* Pull the button upwards when hovered */
  transform: translateY(-0.33em);
 }
 
 button:active .button_top {
-  /* Push the button downwards when pressed */
  transform: translateY(0);
 }
 
