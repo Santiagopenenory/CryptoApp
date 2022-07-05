@@ -1,4 +1,4 @@
-# Proyecto Sistemas Operativos-Taller desarrollo Web
+# Proyecto Sistemas Operativos - Taller de desarrollo Web
 
 ## Tecnologías
 ---
