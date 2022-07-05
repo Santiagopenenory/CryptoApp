@@ -1,6 +1,6 @@
 # Proyecto Sistemas Operativos-Taller desarrollo Web
 
-## Tecnologias
+## Tecnologías
 ---
 - FrontEnd
   - SvelteJs
@@ -21,23 +21,23 @@
 - El usuario podrá :
     - Listar todas las monedas junto con su informacion 
     - Tener su conjunto de monedas de preferencia
-    - Posibilidad de realizar graficos de velas con distintas configuraciones sobre moneda elegida, temporalidad que se quiere analizar  y moneda contra la cual comparar.
+    - Posibilidad de realizar gráficos de velas con distintas configuraciones sobre moneda elegida, temporalidad que se quiere analizar  y moneda contra la cual comparar.
     - Listado de monedas que son tendencia cada dia.  
 ### Autenticacion de usuarios
-- Se provee una  autenticacion de manera rapida y simple mediante [Auth0](https://auth0.com/docs/)
+- Se provee una  autenticación de manera rápida y simple mediante [Auth0](https://auth0.com/docs/)
 ### BackEnd
 - Generacion de API mediante express y nodejs con un conjunto de endpoints para realizar operaciones CRUD usando mongo DB para la persistencia de datos.
 
  
 ### Contenedores
- - Composición de contenedores mediante Docker-compose para dockerizar la aplicación FrontEnd, BackEnd y la respectiva base de datos MongoDB para facilitar el rapido envío y despliegue de toda la aplicación.
+ - Composición de contenedores mediante Docker-compose para dockerizar la aplicación FrontEnd, BackEnd y la respectiva base de datos MongoDB para facilitar el rápido envío y despliegue de toda la aplicación.
 
 
  
  ## Instalación
  ---
 
-**Requisito previo:**
+**Requisitos previos:**
  
 > Tener instalado [Docker](https://docs.docker.com/get-docker/) y [Docker-Compose](https://docs.docker.com/compose/install/)
 
