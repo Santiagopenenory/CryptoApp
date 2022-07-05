@@ -20,4 +20,6 @@ services:
             image: mongo
             ports:
                   - 27017:27017
+            volumes:
+                  - ./BackEnd/db:/data/db
 
