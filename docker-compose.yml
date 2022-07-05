@@ -16,10 +16,17 @@ services:
                 - "5000:5000"
             links:
                   - mongodb
+            environment:
+                  ME_CONFIG_MONGODB_ADMINUSERNAME: root
+                  ME_CONFIG_MONGODB_ADMINPASSWORD: mongo
       mongodb:
             image: mongo
+            restart: always
             ports:
                   - 27017:27017
             volumes:
                   - ./BackEnd/db:/data/db
+            environment:
+                  MONGO_INITDB_ROOT_USERNAME: root
+                  MONGO_INITDB_ROOT_PASSWORD: mongo
 
