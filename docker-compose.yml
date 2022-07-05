@@ -1,0 +1,23 @@
+version: '3'
+
+
+services:
+      frontend:
+            container_name: FrontEnd_App
+            build: ./FrontEnd
+            ports: 
+                  - "3001:3001"
+      
+      backend:
+            container_name: backend_App
+            restart: always
+            build: ./BackEnd
+            ports:
+                - "5000:5000"
+            links:
+                  - mongodb
+      mongodb:
+            image: mongo
+            ports:
+                  - 27017:27017
+
