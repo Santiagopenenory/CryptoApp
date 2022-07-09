@@ -1,4 +1,4 @@
-# Proyecto Sistemas Operativos - Taller de desarrollo Web
+# CryptoFinder App
 
 ## Tecnologías
 ---
